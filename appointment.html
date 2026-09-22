@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Schedule an Appointment | Vora Associates</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#E8F5E9,#F1F8F4);
+    color:#333;
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#1B5E20;
+    color:white;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#A5D6A7;
+}
+
+.back-btn{
+    color:white;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.5);
+    padding:9px 18px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:white;
+    color:#1B5E20;
+}
+
+
+/* ================= MAIN ================= */
+
+.main{
+    width:90%;
+    max-width:1100px;
+    margin:50px auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h1{
+    font-size:38px;
+    color:#1B5E20;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#666;
+    font-size:17px;
+}
+
+
+/* ================= FORM CARD ================= */
+
+.appointment-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(27,94,32,.15);
+    display:grid;
+    grid-template-columns:35% 65%;
+}
+
+
+/* ================= LEFT SIDE ================= */
+
+.info{
+    background:#1B5E20;
+    color:white;
+    padding:40px 35px;
+}
+
+.info h2{
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.info p{
+    color:#E8F5E9;
+    line-height:1.7;
+    margin-bottom:28px;
+}
+
+.info-box{
+    margin-bottom:22px;
+}
+
+.info-box strong{
+    display:block;
+    color:#A5D6A7;
+    margin-bottom:4px;
+}
+
+.info-box span{
+    font-size:15px;
+    line-height:1.6;
+}
+
+
+/* ================= FORM ================= */
+
+.form-section{
+    padding:40px;
+}
+
+.form-section h2{
+    color:#1B5E20;
+    margin-bottom:8px;
+}
+
+.form-description{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.full{
+    grid-column:1 / -1;
+}
+
+label{
+    font-weight:600;
+    margin-bottom:7px;
+    color:#1B5E20;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #D5D5D5;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    background:#FAFAFA;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2E7D32;
+    box-shadow:0 0 0 3px rgba(46,125,50,.1);
+    background:white;
+}
+
+textarea{
+    resize:vertical;
+    min-height:110px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    margin-top:22px;
+    border:none;
+    border-radius:8px;
+    background:#2E7D32;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#145A32;
+    transform:translateY(-2px);
+    box-shadow:0 7px 18px rgba(46,125,50,.25);
+}
+
+
+/* ================= NOTE ================= */
+
+.note{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin-top:15px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+    font-size:14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .appointment-card{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        padding:30px;
+    }
+
+    .form-section{
+        padding:30px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .header{
+        padding:18px 5%;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .back-btn{
+        padding:7px 12px;
+        font-size:13px;
+    }
+
+    .main{
+        width:94%;
+        margin:30px auto;
+    }
+
+    .title h1{
+        font-size:30px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        VORA <span>ASSOCIATES</span>
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Back to Website
+    </a>
+
+</header>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+    <div class="title">
+
+        <h1>Schedule an Appointment</h1>
+
+        <p>
+            Book a consultation with Vora Associates
+        </p>
+
+    </div>
+
+
+
+    <div class="appointment-card">
+
+
+        <!-- ================= LEFT INFORMATION ================= -->
+
+        <div class="info">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                Schedule a consultation with our professional team
+                for taxation, GST, accounting, audit, RERA and
+                business advisory services.
+            </p>
+
+
+            <div class="info-box">
+
+                <strong>📍 Office</strong>
+
+                <span>
+                    B 403-404, Revati Plaza, Fourth Floor,
+                    near Bhakti Circle, Ankur Chokadi,
+                    New India Colony, Nikol,
+                    Ahmedabad, Gujarat 382350
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>📞 Phone</strong>
+
+                <span>
+                    +91 94094 54994
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>✉ Email</strong>
+
+                <span>
+                    vora5570@gmail.com
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>🕒 Office Hours</strong>
+
+                <span>
+                    Monday – Saturday<br>
+                    9:30 AM – 8:30 PM
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= FORM ================= -->
+
+        <div class="form-section">
+
+            <h2>Appointment Details</h2>
+
+            <p class="form-description">
+                Fill in the details below and click
+                "Request Appointment".
+            </p>
+
+
+            <form onsubmit="sendAppointment(event)">
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="clientName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="clientEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="clientEmail"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="clientPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="clientPhone"
+                            placeholder="+91 XXXXX XXXXX"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- SERVICE -->
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            Select Service
+                        </label>
+
+                        <select id="service" required>
+
+                            <option value="">
+                                Select a service
+                            </option>
+
+                            <option>
+                                Accounts
+                            </option>
+
+                            <option>
+                                Income Tax
+                            </option>
+
+                            <option>
+                                GST
+                            </option>
+
+                            <option>
+                                RERA
+                            </option>
+
+                            <option>
+                                Audit & Assurance
+                            </option>
+
+                            <option>
+                                Business Registration
+                            </option>
+
+                            <option>
+                                Financial Advisory
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="appointmentDate">
+                            Preferred Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="appointmentDate"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- TIME -->
+
+                    <div class="form-group">
+
+                        <label for="appointmentTime">
+                            Preferred Time
+                        </label>
+
+                        <input
+   				type="time"
+    				id="appointmentTime"
+    				min="10:00"
+    				max="20:00"
+    				required
+			>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Message / Requirement
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Tell us briefly about your requirement..."
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Request Appointment
+                </button>
+
+
+                <div class="note">
+                    Your email application will open with
+                    the appointment details automatically filled in.
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    © 2026
+    <strong>Vora Associates</strong>
+    | Chartered Accountants & Tax Consultants
+
+</footer>
+
+
+
+<!-- APPOINTMENT JAVASCRIPT -->
+<script>
+
+function sendAppointment(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("clientName").value;
+
+    const email =
+        document.getElementById("clientEmail").value;
+
+    const phone =
+        document.getElementById("clientPhone").value;
+
+    const service =
+        document.getElementById("service").value;
+
+    const date =
+        document.getElementById("appointmentDate").value;
+
+    const time =
+        document.getElementById("appointmentTime").value;
+
+    const message =
+        document.getElementById("message").value;
+
+
+    /* Office hours: 09:30 AM - 08:30 PM */
+
+    const selectedMinutes =
+        parseInt(time.split(":")[0]) * 60 +
+        parseInt(time.split(":")[1]);
+
+    const openingTime = 10 * 60;       // 10:00 AM
+    const closingTime = 20 * 60;       // 8:00 PM
+
+
+    if (
+        selectedMinutes < openingTime ||
+        selectedMinutes > closingTime
+    ){
+
+        alert(
+            "Please select an appointment time between 9:30 AM and 8:30 PM."
+        );
+
+        return;
+    }
+
+
+    const subject =
+        "Appointment Request - " + name;
+
+
+    const body =
+
+        "Dear Vora Associates,%0D%0A%0D%0A" +
+
+        "I would like to request an appointment.%0D%0A%0D%0A" +
+
+        "Name: " +
+        encodeURIComponent(name) +
+        "%0D%0A" +
+
+        "Email: " +
+        encodeURIComponent(email) +
+        "%0D%0A" +
+
+        "Phone: " +
+        encodeURIComponent(phone) +
+        "%0D%0A" +
+
+        "Service: " +
+        encodeURIComponent(service) +
+        "%0D%0A" +
+
+        "Preferred Date: " +
+        encodeURIComponent(date) +
+        "%0D%0A" +
+
+        "Preferred Time: " +
+        encodeURIComponent(time) +
+        "%0D%0A" +
+
+        "Requirement: " +
+        encodeURIComponent(message) +
+
+        "%0D%0A%0D%0A" +
+
+        "Thank you.";
+
+
+    window.location.href =
+        "mailto:vora5570@gmail.com" +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        body;
+
+}
+
+</script>
+
+</body>
+
+</html>
